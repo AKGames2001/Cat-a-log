@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import ProductRoutes from "./components/ProductRoutes";
+import "./resources/css/common.css";
 
 function App() {
-  return (
+  const [apiData, setApiData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchUserData = () => {
+    fetch("https://dummyjson.com/products")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setApiData(data.products);
+        setIsLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  return isLoading ? <></> : (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<Home apiData={apiData} />}></Route>
+          <Route path="/product/:id" element={<ProductRoutes apiData={apiData}/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

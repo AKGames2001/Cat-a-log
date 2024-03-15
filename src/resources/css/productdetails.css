@@ -1,0 +1,42 @@
+.product {
+    display: flex;
+    height: 100vh;
+    font-family:Verdana,Geneva,Tahoma,sans-serif;
+}
+
+.product-image {
+    display: flex;    
+    background-color: rgb(221, 221, 221);
+    height:100%;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-details {
+    display:flex;
+    flex-flow:column;
+    gap: 1.25em;
+    width:50vw;
+    padding: 50px;
+    justify-content: center;
+}
+
+.product-action {
+    display: flex;
+    gap: 20px;
+}
+
+.product-action .product-btn {
+    background-color: rgb(62, 75, 255);
+    padding: 10px 25px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    filter: drop-shadow(0px 0px 5px rgb(56, 53, 82));
+}
+
+.product-btn:hover {
+    background-color: rgb(105, 115, 255);
+    cursor: pointer;
+}
