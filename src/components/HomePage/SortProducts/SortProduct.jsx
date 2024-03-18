@@ -1,4 +1,5 @@
 import React from "react";
+import '../../../resources/css/product.css'
 
 function SortProduct(props) {
   // const currentSortState = props.sortState;
@@ -14,22 +15,22 @@ function SortProduct(props) {
     }
   }
 
-  const sortBy = {
-    display: "flex",
-    alignItems: "center",
-    gap: "20px",
-  };
+  // const sortBy = {
+  //   display: "flex",
+  //   alignItems: "center",
+  //   gap: "20px",
+  // };
 
-  const sortDropdown = {
-    height: "30px",
-    width: "100px",
-  };
+  // const sortDropdown = {
+  //   height: "30px",
+  //   width: "100px",
+  // };
 
   return (
     <>
-      <div style={sortBy}>
+      <div className="catalogue-sort">
         <p htmlFor="sort-order">Sort by</p>
-        <select name="sort-order" style={sortDropdown} onChange={handleChange} >
+        <select name="sort-order" className="catalogue-sort-dropdown" onChange={handleChange} >
           <option value="">
             None
           </option>

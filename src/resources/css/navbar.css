@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
+  z-index: 200;
 }
 
 .nav-search {
@@ -73,8 +74,9 @@
     flex-flow: column;
     position: fixed;
     top: 0px;
+    left: 0px;
     padding-top: 10%;
-    width: calc(100% - 200px);
+    width: 100%;
     height: 100vh;
     background-color: #fff;
   }

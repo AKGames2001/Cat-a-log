@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import SortProduct from "./SortProducts/SortProduct";
 import DisplayProduct from "./DisplayProducts/DisplayProduct";
-import { useState } from "react";
+import '../../resources/css/product.css'
 
 function Products(props) {
   // Passing isMobile as props.isMobile
@@ -51,31 +51,31 @@ function Products(props) {
     setData(props.apiData);
   }
 
-  const catalogueStyle = {
-    display: "flex",
-    flexFlow: "column",
-    width: "80vw",
-    paddingRight: "100px",
-    marginTop: "4em",
-    marginLeft: "25vw",
-  };
+  // const catalogueStyle = {
+  //   display: "flex",
+  //   flexFlow: "column",
+  //   width: "80vw",
+  //   paddingRight: "100px",
+  //   marginTop: "4em",
+  //   marginLeft: "25vw",
+  // };
 
-  const catalogueTitleStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "10px 0px",
-  };
+  // const catalogueTitleStyle = {
+  //   display: "flex",
+  //   justifyContent: "space-between",
+  //   alignItems: "center",
+  //   padding: "10px 0px",
+  // };
 
-  const paraStyle = {
-    fontSize: "14px",
-  };
+  // const paraStyle = {
+  //   fontSize: "14px",
+  // };
 
   return (
     <>
-      <div style={catalogueStyle}>
-        <div style={catalogueTitleStyle}>
-          <p style={paraStyle}>Showing Results from API</p>
+      <div className="catalogue">
+        <div className="catalogue-title">
+          <p className="catalogue-title-p">Showing Results from API</p>
           <SortProduct
             sortState={sortState}
             sortA={sortAscending}

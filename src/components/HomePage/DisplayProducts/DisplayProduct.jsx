@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import '../../../resources/css/product.css'
 
 function DisplayProduct(props) {
   const navigate = useNavigate();
@@ -11,28 +12,28 @@ function DisplayProduct(props) {
   function mapper(arr) {
     return arr.map((ele) => (
       <>
-        <div style={catalogueRow}>
-          <div key={ele[0].id} style={catalogueItem}>
+        <div className="catalogue-row">
+          <div key={ele[0].id} className="catalogue-row-item">
             <img
-              style={catalogueImage}
+              className="catalogue-row-image"
               src={ele[0].images[0]}
               alt="/"
               onClick={(event) => redirectPage(ele[0].id, event)}
             />
-            <div style={catalogueInfo}>
+            <div className="catalogue-row-info">
               <h4>{ele[0].title}</h4>
               <p>${ele[0].price}</p>
             </div>
           </div>
           {ele.length > 1 ? (
-            <div key={ele[1].id} style={catalogueItem}>
+            <div key={ele[1].id} className="catalogue-row-item">
               <img
-                style={catalogueImage}
+                className="catalogue-row-image"
                 src={ele[1].images[0]}
                 alt="/"
                 onClick={(event) => redirectPage(ele[1].id, event)}
               />
-              <div style={catalogueInfo}>
+              <div className="catalogue-row-info">
                 <h4>{ele[1].title}</h4>
                 <p>${ele[1].price}</p>
               </div>
@@ -42,14 +43,14 @@ function DisplayProduct(props) {
           )}
 
           {ele.length > 2 ? (
-            <div key={ele[2].id} style={catalogueItem}>
+            <div key={ele[2].id} className="catalogue-row-item">
               <img
-                style={catalogueImage}
-                src={ele[2].thumbnail}
+                className="catalogue-row-image"
+                src={ele[2].images[0]}
                 alt="/"
                 onClick={(event) => redirectPage(ele[2].id, event)}
               />
-              <div style={catalogueInfo}>
+              <div className="catalogue-row-info">
                 <h4>{ele[2].title}</h4>
                 <p>${ele[2].price}</p>
               </div>
@@ -90,41 +91,39 @@ function DisplayProduct(props) {
 
     return mapper(slicedData);
   }
-  const rootStyle = {
-    height: "100%"
-  };
+  // const rootStyle = {
+  //   height: "100%"
+  // };
 
-  const catalogueRow = {
-    display: "flex",
-    width: "100%",
-    columnGap: "40px",
-  };
+  // const catalogueRow = {
+  //   display: "flex",
+  //   width: "100%",
+  //   columnGap: "40px",
+  // };
 
-  const catalogueItem = {
-    display: "flex",
-    width: "33.33%",
-    flexFlow: "column",
-    alignItems: "center",
-  };
+  // const catalogueItem = {
+  //   display: "flex",
+  //   width: "33.33%",
+  //   flexFlow: "column",
+  //   alignItems: "center",
+  // };
 
-  const catalogueImage = {
-    width: "200px",
-    height: "200px",
-  };
+  // const catalogueImage = {
+  //   width: "200px",
+  //   height: "200px",
+  // };
 
-  const catalogueInfo = {
-    display: "flex",
-    marginBottom: "20px",
-    width: "100%",
-    justifyContent: "space-between",
-    alignItems: "center",
-  };
+  // const catalogueInfo = {
+  //   display: "flex",
+  //   marginBottom: "20px",
+  //   width: "100%",
+  //   justifyContent: "space-between",
+  //   alignItems: "center",
+  // };
 
   return (
     <>
-      <div style={rootStyle} id="root">
-        {arrIterator()}
-      </div>
+      <div className="root">{arrIterator()}</div>
     </>
   );
 }
