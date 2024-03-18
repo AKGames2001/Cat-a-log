@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import FilterItem from "./SortProducts/FilterItem";
 import Products from "./Products";
 
 function Catalogue(props) {
+  const [searchData, setSearchData] = useState({
+    query: "",
+    data: props.apiData,
+  });
+
+  function handleChange(e) {
+    const results = props.apiData.filter((product) => {
+      if (e.target.value === "") {
+        return props.apiData;
+      }
+      return product.title.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    setSearchData({
+      query: e.target.value,
+      data: results,
+    });
+    console.log("Search: " + JSON.stringify(results));
+    console.log("ApiData: " + props.apiData);
+  }
+
   const sideBar = {
     display: "flex",
     flexFlow: "column",
@@ -30,24 +50,33 @@ function Catalogue(props) {
   const catalogue = {
     display: "flex",
     width: "100vw",
-    height: "calc(100vh - 4em)",
+    height: "100%",
   };
 
   return (
     <>
       <div style={catalogue}>
-        <div style={sideBar}>
-          <div>
-            <input style={sideBarSearch} placeholder="Search" />
+        {props.isMobile ? (
+          <></>
+        ) : (
+          <div style={sideBar}>
+            <div>
+              <input
+                style={sideBarSearch}
+                placeholder="Search"
+                value={searchData.query}
+                onChange={handleChange}
+              />
+            </div>
+            <div style={sideBarFilter}>
+              <FilterItem />
+              <FilterItem />
+              <FilterItem />
+              <FilterItem />
+            </div>
           </div>
-          <div style={sideBarFilter}>
-            <FilterItem />
-            <FilterItem />
-            <FilterItem />
-            <FilterItem />
-          </div>
-        </div>
-        <Products apiData={props.apiData} />
+        )}
+        <Products apiData={searchData.data} isMobile={props.isMobile} />
       </div>
     </>
   );

@@ -4,6 +4,8 @@ import DisplayProduct from "./DisplayProducts/DisplayProduct";
 import { useState } from "react";
 
 function Products(props) {
+  // Passing isMobile as props.isMobile
+
   const [sortState, setSortState] = useState("");
   const [data, setData] = useState(props.apiData);
 
@@ -69,8 +71,6 @@ function Products(props) {
     fontSize: "14px",
   };
 
-  
-
   return (
     <>
       <div style={catalogueStyle}>
@@ -83,7 +83,7 @@ function Products(props) {
             sortN={noSort}
           />
         </div>
-        <DisplayProduct data={data} />
+        <DisplayProduct data={data} isMobile={props.isMobile}/>
       </div>
     </>
   );

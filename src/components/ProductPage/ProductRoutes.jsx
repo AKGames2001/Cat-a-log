@@ -1,6 +1,7 @@
 import React from "react";
-import "../resources/css/productdetails.css";
+import "../../resources/css/productdetails.css";
 import { useParams } from "react-router-dom";
+import Footer from "../Footer";
 
 function ProductRoutes(props) {
   const params = useParams();
@@ -24,6 +25,7 @@ function ProductRoutes(props) {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

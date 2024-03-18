@@ -24,23 +24,28 @@ function DisplayProduct(props) {
               <p>${ele[0].price}</p>
             </div>
           </div>
-          <div key={ele[1].id} style={catalogueItem}>
-            <img
-              style={catalogueImage}
-              src={ele[1].images[0]}
-              alt="/"
-              onClick={(event) => redirectPage(ele[1].id, event)}
-            />
-            <div style={catalogueInfo}>
-              <h4>{ele[1].title}</h4>
-              <p>${ele[1].price}</p>
+          {ele.length > 1 ? (
+            <div key={ele[1].id} style={catalogueItem}>
+              <img
+                style={catalogueImage}
+                src={ele[1].images[0]}
+                alt="/"
+                onClick={(event) => redirectPage(ele[1].id, event)}
+              />
+              <div style={catalogueInfo}>
+                <h4>{ele[1].title}</h4>
+                <p>${ele[1].price}</p>
+              </div>
             </div>
-          </div>
+          ) : (
+            <></>
+          )}
+
           {ele.length > 2 ? (
             <div key={ele[2].id} style={catalogueItem}>
               <img
                 style={catalogueImage}
-                src={ele[2].images[0]}
+                src={ele[2].thumbnail}
                 alt="/"
                 onClick={(event) => redirectPage(ele[2].id, event)}
               />
@@ -61,25 +66,32 @@ function DisplayProduct(props) {
     let counter = 0;
     let slicedData = [];
 
-    props.data.forEach((element) => {
-      // Counter to seprate the data into Rows
-      if (counter % 3 === 0) {
-        counter++;
-
-        if (counter + 3 < props.data.length) {
-          slicedData.push(props.data.slice(counter, counter + 3));
-        } else {
-          slicedData.push(props.data.slice(counter));
-        }
-      } else {
-        counter++;
-      }
-    });
+    props.isMobile
+      ? props.data.forEach((element) => {
+          let temp = [];
+          temp.push(element);
+          slicedData.push(temp);
+        })
+      : props.data.forEach((element) => {
+          // Counter to seprate the data into Rows
+          if (counter % 3 === 0) {
+            if (counter + 3 < props.data.length) {
+              slicedData.push(props.data.slice(counter, counter + 3));
+            } else if (counter !== 0) {
+              slicedData.push(props.data.slice(counter));
+            } else {
+              console.log("Data is Empty");
+            }
+            counter++;
+          } else {
+            counter++;
+          }
+        });
 
     return mapper(slicedData);
   }
   const rootStyle = {
-    height: "100vh",
+    height: "100%"
   };
 
   const catalogueRow = {
