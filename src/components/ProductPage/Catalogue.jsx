@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FilterItem from "./SortProducts/FilterItem";
 import Products from "./Products";
+import "../../resources/css/product.css";
 
 function Catalogue(props) {
   const [searchData, setSearchData] = useState({
@@ -23,52 +24,52 @@ function Catalogue(props) {
     console.log("ApiData: " + props.apiData);
   }
 
-  const sideBar = {
-    display: "flex",
-    flexFlow: "column",
-    gap: "15px",
-    position: "fixed",
-    width: "20vw",
-    paddingLeft: "100px",
-    marginTop: "5em",
-  };
+  // const sideBar = {
+  //   display: "flex",
+  //   flexFlow: "column",
+  //   gap: "15px",
+  //   position: "fixed",
+  //   width: "20vw",
+  //   paddingLeft: "100px",
+  //   marginTop: "5em",
+  // };
 
-  const sideBarSearch = {
-    backgroundColor: "rgb(224, 224, 224)",
-    padding: "10px 10px",
-    outline: "none",
-    border: "none",
-    borderRadius: "5px",
-  };
+  // const sideBarSearch = {
+  //   backgroundColor: "rgb(224, 224, 224)",
+  //   padding: "10px 10px",
+  //   outline: "none",
+  //   border: "none",
+  //   borderRadius: "5px",
+  // };
 
-  const sideBarFilter = {
-    display: "flex",
-    flexFlow: "column",
-    gap: "10px",
-  };
+  // const sideBarFilter = {
+  //   display: "flex",
+  //   flexFlow: "column",
+  //   gap: "10px",
+  // };
 
-  const catalogue = {
-    display: "flex",
-    width: "100vw",
-    height: "100%",
-  };
+  // const catalogue = {
+  //   display: "flex",
+  //   width: "100vw",
+  //   height: "100%",
+  // };
 
   return (
     <>
-      <div style={catalogue}>
+      <div className="catalogue-side-bar">
         {props.isMobile ? (
           <></>
         ) : (
-          <div style={sideBar}>
+          <div className="side-bar">
             <div>
               <input
-                style={sideBarSearch}
+                className="side-bar-search"
                 placeholder="Search"
                 value={searchData.query}
                 onChange={handleChange}
               />
             </div>
-            <div style={sideBarFilter}>
+            <div className="side-bar-filter">
               <FilterItem />
               <FilterItem />
               <FilterItem />

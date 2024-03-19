@@ -19,7 +19,7 @@ function MobileNavBar() {
       <Link to="/" className="nav-links-item">
         Home
       </Link>
-      <Link to="" className="nav-links-item">
+      <Link to="/product" className="nav-links-item">
         Shop
       </Link>
       <Link to="/about" className="nav-links-item">

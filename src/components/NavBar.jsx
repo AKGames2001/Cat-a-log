@@ -82,7 +82,7 @@ function NavBar(props) {
   return (
     <>
       <nav className="nav-bar">
-        <h3>Cat-a-log.</h3>
+        <h3><Link to="/">Cat-a-log.</Link></h3>
         <div className="nav-search">
           <BiSearch className="nav-search-icon" />
           <input
@@ -101,7 +101,7 @@ function NavBar(props) {
             <Link to="/" className="nav-links-item">
               Home
             </Link>
-            <Link to="" className="nav-links-item">
+            <Link to="/product" className="nav-links-item">
               Shop
             </Link>
             <Link to="/about" className="nav-links-item">

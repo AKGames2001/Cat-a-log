@@ -1,3 +1,35 @@
+/* Catalogue.jsx */
+
+.side-bar {
+  display: flex;
+  flex-flow: column;
+  gap: 15px;
+  position: fixed;
+  width: 20vw;
+  padding-left: 100px;
+  margin-top: 5em;
+}
+
+.side-bar-search {
+  background-color: rgb(224, 224, 224);
+  padding: 10px 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.side-bar-filter {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+
+.catalogue-side-bar {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+}
+
 /* Products.jsx */
 
 .catalogue {
@@ -24,6 +56,9 @@
   .catalogue {
     display: flex;
     justify-content: center;
+    width: 100vw;
+    padding: 0px;
+    margin: 0px;
   }
 
   .catalogue-title-p {
@@ -34,22 +69,22 @@
 /* SortProduct.jsx */
 
 .catalogue-sort {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .catalogue-sort-dropdown {
-    height: 30px;
-    width: 100px;
+  height: 30px;
+  width: 100px;
 }
 
 @media screen and (max-width: 850px) {
-    .catalogue-sort {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-    }
+  .catalogue-sort {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
 }
 
 /* DisplayProducts.jsx */
@@ -85,14 +120,16 @@
 }
 
 @media screen and (max-width: 850px) {
-    .catalogue-row {
-        margin-top: 20px;
-    }
+  .catalogue-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
 
-    .catalogue-row-item {
-        width: 100%;
-        padding: 25px;
-        background-color: rgb(245, 245, 245);
-        filter: drop-shadow(0px 0px 10px rgba(107, 107, 107, 0.274));
-    }
+  .catalogue-row-item {
+    width: 50%;
+    padding: 25px;
+    background-color: rgb(245, 245, 245);
+    filter: drop-shadow(0px 0px 10px rgba(107, 107, 107, 0.274));
+  }
 }

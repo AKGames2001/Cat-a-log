@@ -1,0 +1,137 @@
+/* Header.jsx */
+
+.header {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+  width: 100vw;
+  height: calc(100vh - 64px);
+}
+
+.header-text {
+  width: 30%;
+  display: flex;
+  color: #09003b;
+  flex-flow: column;
+  gap: 1.5em;
+  margin-left: 100px;
+}
+
+.header-text h1 {
+  font-size: 40px;
+  margin: 0px;
+}
+
+.header-text p {
+  color: #09003b;
+}
+
+.header-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(83, 81, 212);
+  text-decoration: none;
+  color: #fff;
+  width: 25%;
+  padding: 15px 30px;
+  border-radius: 5px;
+}
+
+.header-link:hover {
+    background-color: rgb(58, 57, 155);
+}
+
+.header-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 70%;
+}
+
+.header-image img {
+  height: 50%;
+  width: auto;
+}
+
+@media screen and (max-width: 850px) {
+  .header {
+    height: calc(100vh - 128px);
+  }
+
+  .header-text {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0px;
+  }
+
+  .header-image {
+    display: none;
+  }
+}
+
+/* ItemCatalogue.jsx */
+
+.item-catalogue {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 50px;
+    background-color: rgb(230, 230, 230);
+}
+
+.item-row {
+    padding: 25px 0px 25px 100px;
+}
+
+.item-row-strip {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.item-row-cards {
+    display: flex;
+    background-color: #fff;
+    width: 85%;
+    scroll-snap-type: proximity;
+}
+
+.item-row-card {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border: 0.25px solid gray;
+    width: 25%;
+    height: 100%;
+    margin: 20px;
+    padding-top: 20px;
+}
+
+.item-row-card img {
+    height: 200px;
+    width: 200px;
+}
+
+.item-row-card-info {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px 0px;
+}
+
+.item-row-show-more {
+    padding: 25px;
+    border-radius: 50px;
+    color: #fff;
+    background-color: #13017c;
+}
+
+.item-row-show-more:hover {
+    cursor: pointer;
+    background-color: #09003b;
+}
